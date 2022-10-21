@@ -1,0 +1,22 @@
+server:
+  port: 9800
+
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    gateway:
+      routes:
+        - id: http
+          uri: http://httpbin.org
+          predicates:
+            - Path=/httpbin/**
+          filters:
+            - StripPrefix=1
+        - id: nacos
+          uri: lb://nacos-payment-provider
+          predicates:
+            - Path=/payment-service/**
+          filters:
+            - StripPrefix=1
