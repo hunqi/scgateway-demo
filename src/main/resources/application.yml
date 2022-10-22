@@ -1,5 +1,5 @@
 server:
-  port: 9800
+  port: 9111
 
 spring:
   cloud:
@@ -19,4 +19,7 @@ spring:
           predicates:
             - Path=/payment-service/**
           filters:
+            - AddResponseHeader=Hello, Gateway
+            - AddResponseHeader=Hi, Java
             - StripPrefix=1
+            - Authorize=true
