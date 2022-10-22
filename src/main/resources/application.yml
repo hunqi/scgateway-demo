@@ -7,6 +7,9 @@ spring:
       discovery:
         server-addr: localhost:8848
     gateway:
+      discovery:
+        locator:
+          enabled: true
       routes:
         - id: http
           uri: http://httpbin.org
@@ -14,12 +17,12 @@ spring:
             - Path=/httpbin/**
           filters:
             - StripPrefix=1
-        - id: nacos
-          uri: lb://nacos-payment-provider
-          predicates:
-            - Path=/payment-service/**
-          filters:
-            - AddResponseHeader=Hello, Gateway
-            - AddResponseHeader=Hi, Java
-            - StripPrefix=1
-            - Authorize=true
+#        - id: nacos
+#          uri: lb://nacos-payment-provider
+#          predicates:
+#            - Path=/payment-service/**
+#          filters:
+#            - AddResponseHeader=Hello, Gateway
+#            - AddResponseHeader=Hi, Java
+#            - StripPrefix=1
+#            - Authorize=true
