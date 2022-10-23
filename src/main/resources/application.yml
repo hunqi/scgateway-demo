@@ -1,13 +1,6 @@
 server:
   port: 9100
 
-#nacos:
-#  gateway:
-#    route:
-#      config:
-#        data-id: scgateway-demo
-#        group: DEFAULT_GROUP
-
 spring:
   cloud:
     nacos:
