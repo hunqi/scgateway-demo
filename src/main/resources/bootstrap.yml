@@ -1,8 +1,14 @@
+server:
+  port: 9100
+
 spring:
   application:
     name: scgateway-demo
   cloud:
     nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: b2b3c55a-abe5-47a4-a47e-03c57138d1d7
       config:
         file-extension: yml
         prefix: ${spring.application.name}
