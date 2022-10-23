@@ -1,22 +1,32 @@
 server:
-  port: 9111
+  port: 9100
+
+#nacos:
+#  gateway:
+#    route:
+#      config:
+#        data-id: scgateway-demo
+#        group: DEFAULT_GROUP
 
 spring:
   cloud:
     nacos:
       discovery:
-        server-addr: localhost:8848
-    gateway:
-      discovery:
-        locator:
-          enabled: true
-      routes:
-        - id: http
-          uri: http://httpbin.org
-          predicates:
-            - Path=/httpbin/**
-          filters:
-            - StripPrefix=1
+        server-addr: 127.0.0.1:8848
+        namespace: b2b3c55a-abe5-47a4-a47e-03c57138d1d7
+#        group: dev
+#    gateway:
+#      discovery:
+#        locator:
+#          enabled: true  # switch auto route
+#      routes:
+#        - id: http
+#          uri: http://httpbin.org
+#          predicates:
+#            - Path=/httpbin/**
+#          filters:
+#            - StripPrefix=1
+
 #        - id: nacos
 #          uri: lb://nacos-payment-provider
 #          predicates:
